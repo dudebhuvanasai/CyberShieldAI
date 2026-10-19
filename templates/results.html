@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results | CyberShield AI</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+          
+</head>
+<body>
+
+    <nav class="navbar">
+        <h2>🛡️ CyberShield AI</h2>
+        <a href="{{ url_for('home') }}">← Back to Scanner</a>
+    </nav>
+
+    <main class="results-page">
+        <p class="tagline">SECURITY SCAN REPORT</p>
+        <h1>URL Analysis Results</h1>
+
+        <div class="result-card">
+            <h3>🔗 Scanned URL</h3>
+            <p>{{ result.url }}</p>
+        </div>
+
+        <div class="result-card">
+            <h3>🔍 Basic URL Analysis</h3>
+
+            {% if result.indicators %}
+                {% for indicator in result.indicators %}
+                    <p>⚠️ {{ indicator }}</p>
+                {% endfor %}
+            {% else %}
+                <p>✅ No basic warning found.</p>
+            {% endif %}
+        </div>
+
+        <div class="result-card">
+            <h3>🛡️ Risk Assessment</h3>
+            <h2>{{ result.risk }}</h2>
+            <p>{{ result.note }}</p>
+        </div>
+
+        <div class="result-card">
+            <h3>🌐 VirusTotal Report</h3>
+
+            {% if result.vt and result.vt.stats %}
+                <p>🔴 Malicious: {{ result.vt.stats.get('malicious', 0) }}</p>
+                <p>🟠 Suspicious: {{ result.vt.stats.get('suspicious', 0) }}</p>
+                <p>🟢 Harmless: {{ result.vt.stats.get('harmless', 0) }}</p>
+                <p>⚪ Undetected: {{ result.vt.stats.get('undetected', 0) }}</p>
+                <p>Status: {{ result.vt.status }}</p>
+            {% else %}
+                <p>VirusTotal report unavailable for this URL.</p>
+            {% endif %}
+        </div>
+
+        <a class="back-button" href="{{ url_for('home') }}">
+            Analyze Another URL
+        </a>
+
+        <p class="safe-note">
+            No scan can guarantee that a website is completely safe.
+        </p>
+    </main>
+
+</body>
+</html>

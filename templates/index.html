@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberShield AI | Stay Safe</title>
+
+    <!-- CSS STYLESHEET -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h2>🛡️ CyberShield AI</h2>
+        <span>Smart URL Protection</span>
+    </nav>
+
+    <main class="welcome">
+
+        <div class="shield-icon">🛡️</div>
+
+        <p class="tagline">YOUR DIGITAL SAFETY STARTS HERE</p>
+
+        <h1>
+            Browse Smarter.<br>
+            <span>Stay Protected.</span>
+        </h1>
+
+        <p class="description">
+            Enter a URL to make your browsing safer.
+            Check suspicious websites before you trust them.
+        </p>
+
+        <form action="{{ url_for('analyze') }}"
+              method="POST"
+              class="url-form">
+
+            <input
+                type="url"
+                name="url"
+                placeholder="https://example.com"
+                required>
+
+            <button type="submit">Analyze URL →</button>
+
+        </form>
+
+        <p class="safe-note">
+            🔒 URL Analysis • Threat Intelligence • Risk Assessment
+        </p>
+
+    </main>
+
+    <footer>
+        CyberShield AI © 2026 | Browse Smarter. Stay Protected.
+    </footer>
+
+</body>
+</html>
