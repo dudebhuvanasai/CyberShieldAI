@@ -1,43 +1,41 @@
-# 🛡️ CyberShield AI – Smart URL Protection
+# CyberShield AI
 
-## About
-CyberShield AI is a Python Flask web application that analyzes website URLs and identifies basic suspicious indicators to help users browse more safely.
+## Project Overview
+CyberShield AI is a beginner cybersecurity project that analyzes URLs
+using simple rule-based checks and displays risk summaries in charts.
 
-## Features
-- URL analysis
-- Suspicious keyword detection
-- Low, Medium, and High risk assessment
-- Optional VirusTotal existing report lookup
-- Simple and user-friendly interface
+## Objectives
+- Inspect URL structure and hostname.
+- Check selected suspicious URL patterns.
+- Assign an indicative risk score.
+- Visualize analysis history.
 
-## Technologies Used
+## Technologies
 - Python
-- Flask
-- HTML
-- CSS
-- VirusTotal API
+- Pandas
+- Matplotlib
+- Google Colab
 
-## How to Run
+## How It Works
+The program checks selected URL features, such as IP-address hosts,
+URL length, account-related keywords, URL shorteners, and HTTPS usage.
+It combines these signals into a Low, Medium, or High risk category.
 
-Install dependencies:
+## Run Instructions
+1. Open the project notebook in Google Colab.
+2. Run the code cells from top to bottom.
+3. Analyze URLs using the provided function.
+4. Run the dashboard cell to generate charts.
 
-```bash
-python -m pip install flask requests python-dotenv
-```
+## Dataset
+The current prototype uses illustrative test URLs and rule-based checks.
+It does not yet use a validated labeled dataset or a trained ML model.
+Add a real dataset link here if one is incorporated in a future version.
 
-Run the application:
-
-```bash
-python app.py
-```
-
-Open `http://127.0.0.1:5000` in your browser.
-
-## Security
-Keep API keys private in your local `.env` file. Do not upload secrets to GitHub.
-
-## Disclaimer
-This project provides basic URL checks and does not guarantee that a website is safe.
+## Limitations
+Risk labels are heuristic estimates, not proof that a website is safe
+or malicious. The prototype has not been validated using a labeled
+dataset.
 
 ## Author
 Dude Bhuvana Sai
